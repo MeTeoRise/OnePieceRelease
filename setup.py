@@ -2,6 +2,7 @@ import praw
 import os
 from dotenv import load_dotenv
 
+
 def setup_reddit():
     load_dotenv()
 
