@@ -39,16 +39,56 @@ def get_latest_chapter() -> int:
     Returns:
         latest_chapter (int): last chapter available
     """
-    chapter = 1053
-    submissons = list(
+
+    submissions = list(
         reddit.subreddit("OnePiece").search('flair: "Current Chapter"', limit=1)
     )
-    chapter_title = submissons[0].title
+    chapter_title = submissions[0].title
 
     latest_chapter = int(chapter_title.split()[-1])
     return latest_chapter
 
 
+def get_latest_episode() -> int:
+    """Get last One Piece episode released
+
+    Returns:
+        latest_episode (int): last episode available
+    """
+
+    submissions = list(
+        reddit.subreddit("OnePiece").search('flair: "Current Episode"', limit=1)
+    )
+    episode_title = submissions[0].title
+
+    latest_episode = int(episode_title.split()[-1])
+    return latest_episode
+
+
+def get_latest_spoiler() -> str:
+    """Get last One Piece spoiler
+
+    Arguments:
+        latest_chapter (int): last chapter available
+    """
+
+    latest_chapter = get_latest_chapter()
+    latest_spoiler = latest_chapter + 1
+    submissions = list(
+        reddit.subreddit("OnePiece").search(
+            "One Piece chapter {0} spoilers".format(latest_spoiler), limit=2
+        )
+    )
+    for submission in submissions:
+        if submission.title == "One Piece chapter {0} spoilers".format(latest_spoiler):
+            latest_spoiler = submission.selftext
+            break
+    else:
+        latest_spoiler = ""
+
+    return latest_spoiler
+
+
 # if __name__ == "__main__":
-#     latest_chapter = get_latest_chapter()
-#     print(latest_chapter)
+#     latest_episode = get_latest_spoiler()
+#     print(latest_episode)
