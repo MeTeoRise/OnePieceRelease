@@ -10,9 +10,9 @@ from setup import setup_reddit
 
 function_list = [
     "download-chapter-spoilers",
-    "get_latest_chapter",
-    "get_latest_episode",
-    "get_latest_spoiler",
+    "get-latest-chapter",
+    "get-latest-episode",
+    "get-latest-spoiler",
 ]
 
 if __name__ == "__main__":
@@ -34,13 +34,13 @@ if __name__ == "__main__":
     match args.function:
         case "download-chapter-spoilers":
             download_chapter_spoilers(args.start_chapter, args.end_chapter)
-        case "get_latest_chapter":
+        case "get-latest-chapter":
             latest_chapter = get_latest_chapter()
             print(f"Latest Chapter is: {latest_chapter}")
-        case "get_latest_episode":
+        case "get-latest-episode":
             latest_episode = get_latest_episode()
             print(f"Latest Episode is: {latest_episode}")
-        case "get_latest_spoiler":
+        case "get-latest-spoiler":
             latest_spoiler = get_latest_spoiler()
             if latest_spoiler:
                 print(latest_spoiler)
