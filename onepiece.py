@@ -1,12 +1,13 @@
 import argparse
-import sys
+
 from release_exporter import (
     download_chapter_spoilers,
     get_latest_chapter,
     get_latest_episode,
     get_latest_spoiler,
 )
-from setup import setup_reddit
+
+from reddit import setup_reddit
 
 function_list = [
     "download-chapter-spoilers",
@@ -26,7 +27,7 @@ if __name__ == "__main__":
         help="This is a selector of function you would like to call",
         required=True,
     )
-    parser.add_argument("--start-chapter", type=int, default=1027)
+    parser.add_argument("--start-chapter", type=int, default=1030)
     parser.add_argument("--end-chapter", type=int, default=get_latest_chapter())
 
     args = parser.parse_args()

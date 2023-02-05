@@ -4,7 +4,7 @@ from release_exporter import get_latest_spoiler
 
 
 def get_spoilers_handler(event, context):
-    """This is a handler to pass the latest spoilers to lambda invokares"""
+    """This is a handler to pass the latest spoilers to lambda invoker"""
     latest_spoiler = get_latest_spoiler()
 
     html = markdown(latest_spoiler)

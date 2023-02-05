@@ -1,4 +1,4 @@
-from setup import setup_reddit
+from reddit import setup_reddit
 import os
 
 
@@ -89,6 +89,6 @@ def get_latest_spoiler() -> str:
     return latest_spoiler
 
 
-# if __name__ == "__main__":
-#     latest_episode = get_latest_spoiler()
-#     print(latest_episode)
+if __name__ == "__main__":
+    latest_episode = get_latest_spoiler()
+    print(latest_episode)
